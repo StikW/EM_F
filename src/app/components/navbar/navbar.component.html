@@ -1,0 +1,23 @@
+<header class="navbar">
+  <div class="container nav-inner">
+    <a routerLink="/" class="brand">
+      <span class="brand-icon">🌿</span>
+      <span class="brand-text">Eco<strong>Mart</strong></span>
+    </a>
+
+    <nav class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+      <a routerLink="/" fragment="productos" class="hide-mobile">Productos</a>
+    </nav>
+
+    <div class="nav-actions">
+      @if (isAuth()) {
+        <span class="hello hide-mobile">Hola, <strong>{{ user()?.name }}</strong></span>
+        <button class="btn btn-outline btn-sm" (click)="logout()">Salir</button>
+      } @else {
+        <a routerLink="/login" class="btn btn-outline btn-sm">Iniciar sesión</a>
+        <a routerLink="/register" class="btn btn-primary btn-sm">Crear cuenta</a>
+      }
+    </div>
+  </div>
+</header>
