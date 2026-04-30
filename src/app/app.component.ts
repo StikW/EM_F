@@ -17,7 +17,7 @@ import { filter } from 'rxjs';
     @if (showNavbar) {
       <footer class="app-footer">
         <div class="container">
-          <p>© {{ year }} EcoMart · Compra responsable, vive sostenible.</p>
+          <p>© {{ year }} EcoMart · Tu marketplace favorito.</p>
         </div>
       </footer>
     }
@@ -25,8 +25,8 @@ import { filter } from 'rxjs';
   styles: [`
     main { min-height: calc(100vh - 64px - 60px); }
     .app-footer {
-      background: #1b5e20;
-      color: #c8e6c9;
+      background: #18181b;
+      color: #a1a1aa;
       padding: 20px 0;
       text-align: center;
       font-size: 0.9rem;

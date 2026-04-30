@@ -1,7 +1,22 @@
 .hero {
-  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(132, 204, 22, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(163, 230, 53, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%);
   padding: 60px 0 80px;
   overflow: hidden;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-bright) 50%, var(--color-accent) 100%);
+  pointer-events: none;
 }
 
 .hero-inner {
@@ -12,14 +27,22 @@
 }
 
 .badge {
-  display: inline-block;
-  background: rgba(46, 125, 50, 0.12);
-  color: var(--color-primary-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-primary);
+  color: var(--color-accent-bright);
   padding: 6px 14px;
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 16px;
+  border: 1px solid rgba(132, 204, 22, 0.3);
+}
+
+.hero-inner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text h1 {
@@ -31,7 +54,21 @@
 }
 
 .hero-text h1 .accent {
-  color: var(--color-accent);
+  position: relative;
+  display: inline-block;
+  color: var(--color-primary);
+  z-index: 1;
+}
+
+.hero-text h1 .accent::before {
+  content: '';
+  position: absolute;
+  inset: auto -4px 8%;
+  height: 35%;
+  background: var(--color-accent);
+  z-index: -1;
+  border-radius: 4px;
+  transform: skewX(-6deg);
 }
 
 .hero-text p {
@@ -103,7 +140,7 @@
 
 .search-box input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+  box-shadow: 0 0 0 3px rgba(132, 204, 22, 0.25);
 }
 
 .categories {
@@ -176,7 +213,7 @@
 .product-image {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: #f1f8e9;
+  background: #f4f4f5;
   overflow: hidden;
 }
 
