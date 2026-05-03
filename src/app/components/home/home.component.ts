@@ -14,8 +14,8 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private productService = inject(ProductService);
-  private auth = inject(AuthService);
+  private readonly productService = inject(ProductService);
+  private readonly auth = inject(AuthService);
 
   user = this.auth.user;
   isAuth = this.auth.isAuthenticated;

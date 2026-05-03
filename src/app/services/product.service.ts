@@ -6,8 +6,8 @@ import { Product, ProductListResponse } from '../models/product.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/products`;
+  private readonly http = inject(HttpClient);
+  private readonly apiUrl = `${environment.apiUrl}/products`;
 
   getAll(filters: { category?: string; search?: string } = {}): Observable<ProductListResponse> {
     let params = new HttpParams();

@@ -37,7 +37,7 @@
             id="password"
             [type]="showPassword ? 'text' : 'password'"
             formControlName="password"
-            autocomplete="current-password"
+            [attr.autocomplete]="showPassword ? 'off' : 'current-password'"
             placeholder="••••••••"
             [class.invalid]="hasError('password', 'required') || hasError('password', 'minlength')"
           />

@@ -19,9 +19,9 @@ function passwordsMatch(control: AbstractControl): ValidationErrors | null {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  private fb = inject(FormBuilder);
-  private auth = inject(AuthService);
-  private router = inject(Router);
+  private readonly fb = inject(FormBuilder);
+  private readonly auth = inject(AuthService);
+  private readonly router = inject(Router);
 
   loading = false;
   errorMessage = '';

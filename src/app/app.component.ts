@@ -38,7 +38,7 @@ export class AppComponent {
   showNavbar = true;
   year = new Date().getFullYear();
 
-  constructor(private router: Router) {
+  constructor(private readonly router: Router) {
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
       .subscribe((e: any) => {

@@ -54,7 +54,7 @@
             id="password"
             [type]="showPassword ? 'text' : 'password'"
             formControlName="password"
-            autocomplete="new-password"
+            [attr.autocomplete]="showPassword ? 'off' : 'new-password'"
             placeholder="Mínimo 6 caracteres"
             [class.invalid]="hasError('password', 'required') || hasError('password', 'minlength')"
           />
@@ -75,7 +75,7 @@
           id="confirmPassword"
           [type]="showPassword ? 'text' : 'password'"
           formControlName="confirmPassword"
-          autocomplete="new-password"
+          [attr.autocomplete]="showPassword ? 'off' : 'new-password'"
           placeholder="Repite la contraseña"
           [class.invalid]="hasError('confirmPassword', 'required') || passwordsMismatch"
         />

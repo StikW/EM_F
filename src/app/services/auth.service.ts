@@ -9,8 +9,8 @@ const USER_KEY = 'ecomart_user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/auth`;
+  private readonly http = inject(HttpClient);
+  private readonly apiUrl = `${environment.apiUrl}/auth`;
 
   private currentUser = signal<User | null>(this.loadUser());
   readonly user = this.currentUser.asReadonly();
