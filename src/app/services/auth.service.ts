@@ -12,7 +12,7 @@ export class AuthService {
   private readonly http = inject(HttpClient);
   private readonly apiUrl = `${environment.apiUrl}/auth`;
 
-  private currentUser = signal<User | null>(this.loadUser());
+  private readonly currentUser = signal<User | null>(this.loadUser());
   readonly user = this.currentUser.asReadonly();
   readonly isAuthenticated = computed(() => this.currentUser() !== null);
 
@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   private loadUser(): User | null {
-    if (typeof window === 'undefined') return null;
+    if (typeof globalThis.window === 'undefined') return null;
     const raw = localStorage.getItem(USER_KEY);
     if (!raw) return null;
     try {
