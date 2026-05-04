@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   private loadUser(): User | null {
-    if (typeof globalThis.window === 'undefined') return null;
+    if (globalThis.window === undefined) return null;
     const raw = localStorage.getItem(USER_KEY);
     if (!raw) return null;
     try {
